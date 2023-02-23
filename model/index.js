@@ -60,7 +60,7 @@ class User {
     fetchUsers(req, res) {
         const strQry =
             `
-        SELECT userID, firstName, lastName, gender, cellphoneNumber, emailAdd, userRole, userProfile, joinDate, cart
+        SELECT user_id, firstName, lastName, gender, cellphoneNumber, emailAdd, userRole, userProfile, joinDate, cart
         FROM Users2;
         `;
         //db
@@ -73,9 +73,9 @@ class User {
     fetchUser(req, res) {
         const strQry =
             `
-        SELECT userID, firstName, lastName, gender, cellphoneNumber, emailAdd, userRole, userProfile, joinDate, cart
+        SELECT user_id, firstName, lastName, gender, cellphoneNumber, emailAdd, userRole, userProfile, joinDate, cart
         FROM Users2
-        WHERE userID = ?;
+        WHERE user_id = ?;
         `;
         //db
         con.query(strQry, [req.params.id],
@@ -126,7 +126,7 @@ class User {
             `
         UPDATE Users2
         SET ?
-        WHERE userID = ?;
+        WHERE user_id = ?;
         `;
         //db
         con.query(strQry, [data, req.params.id],
@@ -142,7 +142,7 @@ class User {
         const strQry =
             `
         DELETE FROM Users2
-        WHERE userID = ?;
+        WHERE user_id = ?;
         `;
         //db
         con.query(strQry, [req.params.id],
@@ -158,7 +158,7 @@ class User {
 // Product
 class Product {
     fetchProducts(req, res) {
-        const strQry = `SELECT id, prodName, prodDescription, 
+        const strQry = `SELECT product_id, prodName, prodDescription, 
         levels, prodPrice, prodQuantity, imgURL
         FROM products2;`;
         con.query(strQry, (err, results) => {
@@ -167,7 +167,7 @@ class Product {
         });
     }
     fetchProduct(req, res) {
-        const strQry = `SELECT id, prodName, prodDescription, 
+        const strQry = `SELECT product_id, prodName, prodDescription, 
         levels, prodPrice, prodQuantity, imgURL
         FROM products2
         WHERE id = ?;`;
@@ -199,7 +199,7 @@ class Product {
             `
         UPDATE Products2
         SET ?
-        WHERE id = ?
+        WHERE product_id = ?
         `;
         con.query(strQry, [req.body, req.params.id],
             (err) => {
@@ -216,7 +216,7 @@ class Product {
         const strQry =
             `
         DELETE FROM Products2
-        WHERE id = ?;
+        WHERE product_id = ?;
         `;
         con.query(strQry, [req.params.id], (err) => {
             if (err) res.status(400).json({ err: "The record was not found." });
