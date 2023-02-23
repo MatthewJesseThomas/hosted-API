@@ -25,8 +25,8 @@ class User {
                         "You provide a wrong email address"
                 });
             } else {
-                await compare(userPass,
-                    data[0].userPass,
+                await compare(user_password,
+                    data[0].user_password,
                     (cErr, cResult) => {
                         if (cErr) throw cErr;
                         // Create a token
