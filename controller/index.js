@@ -26,6 +26,10 @@ route.post('/login', bodyParser.json(), (req, res)=>{
 route.get('/users2', (req, res)=>{
     user.fetchUsers(req, res);
 });
+// Retrieve specific user
+route.get('/users2/:id', (req, res)=>{
+    user.fetchUsers(req, res);
+});
 // Update
 route.put('/users2/:id',bodyParser.json(), (req, res)=>{
     user.updateUser(req, res);
