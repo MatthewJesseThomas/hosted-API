@@ -23,11 +23,11 @@ route.post('/login', bodyParser.json(), (req, res)=>{
     user.login(req, res);
 });
 // Retrieve all users
-route.get('/users', (req, res)=>{
+route.get('/users2', (req, res)=>{
     user.fetchUsers(req, res);
 });
 // Update
-route.put('/user/:id',bodyParser.json(), (req, res)=>{
+route.put('/users2/:id',bodyParser.json(), (req, res)=>{
     user.updateUser(req, res);
 });
 // Register
@@ -35,28 +35,28 @@ route.post('/register', bodyParser.json(), (req, res)=> {
     user.createUser(req, res);
 });
 // Delete
-route.delete('/user/:id', (req, res)=>{
+route.delete('/users2/:id', (req, res)=>{
     user.deleteUser(req, res);
 });
 // =====Products======
 // Fetch all products
-route.get('/products', (req, res)=> {
+route.get('/products2', (req, res)=> {
     product.fetchProducts(req, res);
 });
 // Fetch a single product
-route.get('/product/:id', (req, res)=> {
+route.get('/products2/:id', (req, res)=> {
     product.fetchProduct(req, res);
 });
 // Add a new product
-route.post('/product', bodyParser.json(), (req, res)=> {
+route.post('/products2', bodyParser.json(), (req, res)=> {
     product.addProduct(req, res);
 });
 // Update a product
-route.put('/product/:id', bodyParser.json(), (req, res)=> {
+route.put('/products2/:id', bodyParser.json(), (req, res)=> {
     product.updateProduct(req, res);
 });
 // Delete a product
-route.delete('/product/:id', (req, res)=> {
+route.delete('/products2/:id', (req, res)=> {
     product.deleteProduct(req, res);
 })
 
